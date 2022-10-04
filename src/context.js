@@ -51,10 +51,12 @@ const AppProvider = ({ children }) => {
       const responseData = await response.json()
 
       const dataGallery = responseData.map((item) => {
-        const {flickr_images, id, name} = item
+        console.log(item);
+        const {flickr_images, id, name, description} = item
         const galaryItem = {
           flickr_images: flickr_images,
           name: name,
+          description: description,
           id: id,
           favorite: false
        }

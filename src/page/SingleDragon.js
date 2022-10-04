@@ -15,6 +15,7 @@ export const SingleDragon = () => {
   const [moreData, setMoreData] = useState([]);
   const { id } = useParams();
   const singleDragonUrl = { galleryUrl };
+  console.log(dataSingleDragon);
 
   const fetchSingleDragon = async () => {
     try {
@@ -42,26 +43,36 @@ export const SingleDragon = () => {
           </div>
           <div className="desc-container">
             <p className="desc-title">Description</p>
+
             <div className="flex">
-              <p>
-                Name: <span>{dataSingleDragon.name}</span>
-              </p>
-              <p>
-                Material: <span>{moreData.material}</span>
-              </p>
-              <p>
-                Temp-degrees: <span>{moreData.temp_degrees}</span>
-              </p>
-              <p>
-                Dev-partner: <span>{moreData.dev_partner}</span>
-              </p>
-              <p>
-                Description:{" "}
+               <div className="left-flex">
+                <p>Name:</p>
+                <p>Material:</p>
+                <p>Temp-degrees:</p>
+                <p>Dev-partner:</p>
+                <p>Type:</p>
+               </div>
+               <div className="right-flex">
+                <p>{dataSingleDragon.name}</p>
+                <p>{moreData.material}</p>
+                <p>{moreData.temp_degrees}</p>
+                <p>{moreData.dev_partner}</p>
+                <p>{dataSingleDragon.type}</p>
+               </div>
+          
+              {/* <p>
+                Description:
                 <span className="desc">{dataSingleDragon.description}</span>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
+
+        <div className="desc">
+             <p>Description:
+             <span>{dataSingleDragon.description}</span>
+             </p>
+             </div>
       </MainContainer>
       <Footer />
     </>
@@ -74,16 +85,18 @@ const MainContainer = styled.main`
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow: hidden;
+
   .container {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    padding: 4rem;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
       flex-direction: column;
+    }
+    .desc-container {
+      min-width: 35vw;
     }
     img {
       width: 75vh;
@@ -96,22 +109,37 @@ const MainContainer = styled.main`
       font-size: 34px;
       line-height: 0px;
       margin-top: 1.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      padding-left: 25vh;
     }
     .flex {
       display: flex;
-      flex-direction: column;
-      gap: 5vh;
-      max-width: 600px;
+      flex-direction: row;
+      gap: 20vh;
+      padding-bottom: 2rem;
+      justify-content: center;
+      line-height: 4rem;
     }
+
     p {
       color: white;
       font-size: 25px;
       margin: 0;
-      span {
-        font-size: 23px;
-        padding-left: 7vw;
-      }
     }
+  }
+  .desc {
+    max-width: 80vw;
+    margin: 0;
+    margin-left: 10%;
+     p {
+      margin: 0;
+      padding-bottom: 3rem;
+      color: white;
+      font-size: 24px;
+       span {
+        padding-left: 1rem;
+        font-size: 20px;
+       }
+     }
   }
 `;
