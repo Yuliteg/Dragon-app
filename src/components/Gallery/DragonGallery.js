@@ -2,7 +2,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
 import { GalleryContainer } from "./GalleryContainer";
 import { useGlobalContext } from "../../context";
-import { useState } from "react";
+import { useState,  useEffect } from "react";
 
 export const DragonGallery = ({ itemData }) => {
    const [like, setLike] = useState('like')

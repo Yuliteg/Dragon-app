@@ -16,8 +16,6 @@ const AppProvider = ({ children }) => {
     const [dataGallery, setDataGallery] = useState([]);
     const [count, setCount] = useState(0)
 
-    // const countFavorites = dataGallery.filter((item) => item.favorite === true).length;
-    // setCountOfFavorites(countOfFavorites)
     const fetchInfo = async () => {
         setLoading(false)
         if (localStorage.getItem('localData') !== null) {
@@ -51,7 +49,6 @@ const AppProvider = ({ children }) => {
       const responseData = await response.json()
 
       const dataGallery = responseData.map((item) => {
-        console.log(item);
         const {flickr_images, id, name, description} = item
         const galaryItem = {
           flickr_images: flickr_images,
@@ -62,7 +59,6 @@ const AppProvider = ({ children }) => {
        }
        return galaryItem
       })
-
       setDataGallery(dataGallery)
     }
 

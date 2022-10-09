@@ -1,6 +1,6 @@
 import { useGlobalContext } from '../context';
 import styled from 'styled-components';
-import background from '../image/Stars.png'; 
+import background from '../image/Stars.png';
 import Navbar from '../components/Navbar';
 import Information from '../components/Information/Information';
 import Slider from '../components/Slider/Slider';
@@ -8,30 +8,32 @@ import Loading from './Loading';
 import { DragonGallery } from '../components/Gallery/DragonGallery';
 import { SingleDragon } from './SingleDragon';
 import Footer from '../components/Footer';
+import BackToTop from '../components/BackToTop';
 
 
 export const Home = () => {
-    const { loading, dataGallery } = useGlobalContext();
-    console.log(dataGallery);
-    return (
-        <>
-        <Navbar />
+  const { loading, dataGallery } = useGlobalContext();
+
+  return (
+    <>
+      <Navbar />
       <MainContainer>
-         {loading ? <Loading /> : null}
-      <Information />
-       <Slider />
-       <Gallery>
-     <div className="gallery-container">
-     <p className='gallery-title'>Here you can see the best photos</p>
-       {dataGallery.map((dragon) => {
-          return <DragonGallery key={dragon.id} itemData={dragon}/>
-       })}
-  </div>
-</Gallery>
-</MainContainer>
- <Footer />
-</>
-    )
+        {loading ? <Loading /> : null}
+        <Information />
+        <Slider />
+        <Gallery>
+          <div className="gallery-container">
+            <p className='gallery-title'>Here you can see the best photos</p>
+            {dataGallery.map((dragon) => {
+              return <DragonGallery key={dragon.id} itemData={dragon} />
+            })}
+          </div>
+        </Gallery>
+      </MainContainer>
+        <BackToTop />
+      <Footer />
+    </>
+  )
 }
 
 const MainContainer = styled.main`
@@ -39,7 +41,7 @@ const MainContainer = styled.main`
   background-size: cover;
   background-position: center center;      
   background-repeat: no-repeat;      
-  background-attachment: fixed;   
+  background-attachment: fixed;
 `
 
 const Gallery = styled.section`

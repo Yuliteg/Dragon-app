@@ -9,7 +9,6 @@ export const FavoritePage = () => {
   const { dataGallery } = useGlobalContext();
 
   const favorite = dataGallery.filter((item) => item.favorite === true);
-  console.log(favorite);
   let favoriteData = [];
 
   if (favorite) {
@@ -35,8 +34,8 @@ export const FavoritePage = () => {
                         src={item.flickr_images[2]}
                         alt="favorite-img"
                       ></img>
-                      <p className="dragon-name">Name: {item.name}</p>
-                      <p className="dragon-desc">Description: {item.description}</p>
+                      <p className="dragon-name">Name: <span className="dragon-span">{item.name}</span></p>
+                      <p className="dragon-desc">Description: <span>{item.description}</span></p>
                     </div>
                   </>
                 );
@@ -58,7 +57,6 @@ export const FavoritePage = () => {
         </MainContainer>
         <Footer />
         </>
-        // <p>'you need choose favorite'</p>
       )}
     </div>
   );
@@ -129,7 +127,7 @@ const PageFavorites = styled.section`
     flex-direction: column;
     padding-top: 1.3rem;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 4rem;
   }
     font-size: 18px;
     letter-spacing: 0.05rem;
@@ -141,14 +139,26 @@ const PageFavorites = styled.section`
     font-weight: 600;
     font-size: 34px;
     line-height: 0px;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
   }
   .dragon-name {
     font-weight: 600;
     font-size: 30px;
     line-height: 0px;
     margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
   .dragon-desc {
     max-width: 90vh;
+  }
+  span {
+    font-size: 25px;
+    padding-left: 1rem;
+  }
+  .dragon-span {
+    font-size: 26px;
+    padding-left: 0.5rem;
   }
 `;

@@ -140,6 +140,16 @@ const NavContainer = styled.nav`
       @media screen and (max-width: 600px) {
       transform: none;
   }
+  .favorite-value {
+    @media screen and (max-width: 600px) {
+      display: none;
+  }
+  .like {
+    @media screen and (max-width: 600px) {
+     
+  }
+  }
+  }
     }
 `
 
