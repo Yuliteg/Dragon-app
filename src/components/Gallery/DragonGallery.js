@@ -13,13 +13,19 @@ export const DragonGallery = ({ itemData }) => {
     if (!favorite) {
       itemData.favorite = true;
       setCount(count + 1);
-      setLike('active')
     } else {
       itemData.favorite = false;
       setCount(count - 1);
-      setLike('like')
     }
   };
+
+  useEffect(() => {
+   if(favorite === true) {
+     setLike('active')
+   } else {
+     setLike('like')
+   }
+  }, [count])
 
 
   return (

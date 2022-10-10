@@ -15,6 +15,7 @@ const AppProvider = ({ children }) => {
     const [returnMass, setReturnMass] = useState([]);
     const [dataGallery, setDataGallery] = useState([]);
     const [count, setCount] = useState(0)
+  
 
     const fetchInfo = async () => {
         setLoading(false)
