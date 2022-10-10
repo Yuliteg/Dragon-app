@@ -10,6 +10,11 @@ https://spacex-dragon-app.netlify.app
 # Getting Started with Create React App
 This project was bootstrapped with Create React App.
 
+## To start this project
+1) Download or clone the repository.
+2) Run npm install for installing all needed dependencies.
+3) Run npm start.
+
 # Available Scripts
 ### In the project directory, you can run:
 
