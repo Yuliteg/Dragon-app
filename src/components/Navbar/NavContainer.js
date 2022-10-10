@@ -1,48 +1,6 @@
 import styled from 'styled-components';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useRef } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
-import { Link } from 'react-router-dom'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useGlobalContext } from '../context';
 
-const Navbar = () => {
-  const {dataGallery, count} = useGlobalContext();
-
-  const navRef = useRef()
-
-  const showNavbar = () => {
-    navRef.current.classList.toggle('responsive-nav')
-    navRef.current.classList.toggle('responsive')
-  }
-
-  return (
-    <NavContainer>
-      <p className='logo'>dragon</p>
-
-      <nav ref={navRef}>
-        <Link to='/'>Home</Link>
-        <Link to='favorites'>Favorites
-          <span className="favorite-container">
-            <FavoriteIcon className="like" />
-            <span className='favorite-value'>{count}</span>
-          </span>
-        </Link>
-        <Link to='/'>Log out</Link>
-        <button className='nav-btn nav-close' onClick={showNavbar}>
-          <CloseIcon />
-        </button>
-      </nav>
-
-      <button className='nav-btn' onClick={showNavbar}>
-        <MenuIcon />
-      </button>
-      {/* </div> */}
-    </NavContainer>
-  )
-}
-
-const NavContainer = styled.nav`
+export const NavContainer = styled.nav`
   height: 4rem;
   background-color: black;
   filter: drop-shadow(0px 4px 7px rgba(126, 57, 143, 0.7));
@@ -136,7 +94,7 @@ const NavContainer = styled.nav`
        }
   }
     }
-    .responsive-nav {
+  .responsive-nav {
       @media screen and (max-width: 600px) {
       transform: none;
   }
@@ -147,10 +105,8 @@ const NavContainer = styled.nav`
   .like {
     @media screen and (max-width: 600px) {
      
-  }
-  }
-  }
+   }
     }
-`
-
-export default Navbar;
+     }
+      }
+`;

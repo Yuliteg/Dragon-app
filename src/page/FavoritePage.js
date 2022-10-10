@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import styled from "styled-components";
 import background from "../image/Stars.png";
 import Footer from "../components/Footer";

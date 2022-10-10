@@ -29,7 +29,6 @@ const Wrapper = styled.main`
     margin-bottom: 2rem;
   }
 
-/* CSS */
 .button-3 {
   appearance: none;
   background-color: #2ea44f;
@@ -80,7 +79,6 @@ const Wrapper = styled.main`
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
-  
 `
 
 export default ErrorPage

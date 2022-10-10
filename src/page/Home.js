@@ -1,7 +1,7 @@
 import { useGlobalContext } from '../context';
 import styled from 'styled-components';
 import background from '../image/Stars.png';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import Information from '../components/Information/Information';
 import Slider from '../components/Slider/Slider';
 import Loading from './Loading';

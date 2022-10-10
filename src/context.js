@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 
-
 const infoUrl = 'https://api.spacexdata.com/v4/dragons/5e9d058759b1ff74a7ad5f8f';
 export const galleryUrl = 'https://api.spacexdata.com/v4/dragons';
 const AppContext = React.createContext()
@@ -16,7 +15,6 @@ const AppProvider = ({ children }) => {
     const [dataGallery, setDataGallery] = useState([]);
     const [count, setCount] = useState(0)
   
-
     const fetchInfo = async () => {
         setLoading(false)
         if (localStorage.getItem('localData') !== null) {
@@ -74,7 +72,6 @@ const AppProvider = ({ children }) => {
         </AppContext.Provider>
     )
 }
-
 
 export const useGlobalContext = () => {
     return useContext(AppContext)

@@ -17,7 +17,7 @@ export const SliderWrapper = styled.section`
       display: flex;
       justify-content: center;
       cursor: pointer;
-      .dot-active {
+    .dot-active {
         width: 8px;
         height: 8px;
         border-radius: 50%;
@@ -26,7 +26,7 @@ export const SliderWrapper = styled.section`
         background: #f1f1f1;
         background: rgb(32, 32, 32);
       }
-      .dot {
+    .dot {
         width: 8px;
         height: 8px;
         border-radius: 50%;

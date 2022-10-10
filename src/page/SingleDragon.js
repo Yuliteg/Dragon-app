@@ -4,7 +4,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { galleryUrl } from "../context";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import background from "../image/Stars.png";
 
@@ -59,11 +59,6 @@ export const SingleDragon = () => {
                 <p>{moreData.dev_partner}</p>
                 <p>{dataSingleDragon.type}</p>
                </div>
-          
-              {/* <p>
-                Description:
-                <span className="desc">{dataSingleDragon.description}</span>
-              </p> */}
             </div>
           </div>
         </div>

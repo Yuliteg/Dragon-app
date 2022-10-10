@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InformationWrapper = styled.section`
-      min-height: 82vh;
+    min-height: 82vh;
     display: flex;
     margin: 0px 5rem;
     padding-top: 3rem;
@@ -57,14 +57,13 @@ export const InformationWrapper = styled.section`
         }
       }
 
-      .desc-title {
+     .desc-title {
         padding-bottom: 0.5rem;
         color: white;
         font-weight: 600;
         font-size: 34px;
         line-height: 0px;
         margin-top: 1.2rem;
-
       }
     }
   `;
