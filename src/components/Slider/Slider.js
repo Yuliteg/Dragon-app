@@ -7,7 +7,7 @@ import { useState } from 'react';
 const Slider = () => {
     const [currImg, setCurrentImg] = useState(1)
     const {images} = useGlobalContext();
-
+    
     const moveDot = index => {
         setCurrentImg(index - 1)
     }

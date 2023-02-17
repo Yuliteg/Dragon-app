@@ -16,6 +16,7 @@ export const InformationWrapper = styled.section`
     width: 50%;
     height: auto;
     filter: drop-shadow(0px 2px 4px rgba(126, 57, 143, 0.7));
+    
     img {
       width: 90%;
       height: auto;
@@ -23,14 +24,16 @@ export const InformationWrapper = styled.section`
        }
        @media screen and (max-width: 750px) {
     width: 90%;
-  }
+     }
   }
 
-    .dragon-desc {
-      width: 40%;
-      @media screen and (max-width: 750px) {
-        width: 80%;
+  .dragon-desc {
+    width: 50%;
+    @media screen and (max-width: 750px) {
+    width: 90%;
+     }
   }
+
       .wrapper {
         display: flex;
         justify-content: space-between;
@@ -65,5 +68,4 @@ export const InformationWrapper = styled.section`
         line-height: 0px;
         margin-top: 1.2rem;
       }
-    }
   `;

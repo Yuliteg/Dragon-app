@@ -1,21 +1,17 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context";
+import { useParams } from "react-router-dom";
 import { galleryUrl } from "../context";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import background from "../image/Stars.png";
 
+
 export const SingleDragon = () => {
-  const { loading, setLoading } = useGlobalContext();
   const [dataSingleDragon, setSingleDragon] = useState([]);
   const [imgSingleDragon, setImg] = useState([]);
   const [moreData, setMoreData] = useState([]);
   const { id } = useParams();
-  const singleDragonUrl = { galleryUrl };
-  console.log(dataSingleDragon);
 
   const fetchSingleDragon = async () => {
     try {
@@ -45,29 +41,29 @@ export const SingleDragon = () => {
             <p className="desc-title">Description</p>
 
             <div className="flex">
-               <div className="left-flex">
+              <div className="left-flex">
                 <p>Name:</p>
                 <p>Material:</p>
                 <p>Temp-degrees:</p>
                 <p>Dev-partner:</p>
                 <p>Type:</p>
-               </div>
-               <div className="right-flex">
+              </div>
+              <div className="right-flex">
                 <p>{dataSingleDragon.name}</p>
                 <p>{moreData.material}</p>
                 <p>{moreData.temp_degrees}</p>
                 <p>{moreData.dev_partner}</p>
                 <p>{dataSingleDragon.type}</p>
-               </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="desc">
-             <p>Description:
-             <span>{dataSingleDragon.description}</span>
-             </p>
-             </div>
+          <p>Description:
+            <span>{dataSingleDragon.description}</span>
+          </p>
+        </div>
       </MainContainer>
       <Footer />
     </>

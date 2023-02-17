@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../context";
 import { useState,  useEffect } from "react";
 
 export const DragonGallery = ({ itemData }) => {
-   const [like, setLike] = useState('like')
+  const [like, setLike] = useState('like')
   const { flickr_images, name, id, favorite } = itemData;
   const { count, setCount } = useGlobalContext();
 

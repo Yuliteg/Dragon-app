@@ -2,7 +2,6 @@ import { useGlobalContext } from '../../context';
 import { InformationWrapper } from './InformationWrapper';
 
 const Information = () => {
-
     const {space, images, height, diameter, launchMass, returnMass} = useGlobalContext();
 
     return (

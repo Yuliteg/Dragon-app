@@ -7,15 +7,7 @@ import { Link } from "react-router-dom";
 
 export const FavoritePage = () => {
   const { dataGallery } = useGlobalContext();
-
   const favorite = dataGallery.filter((item) => item.favorite === true);
-  let favoriteData = [];
-
-  if (favorite) {
-    favoriteData = favorite.map((item) => {
-      const { name } = item;
-    });
-  }
 
   return (
     <div>

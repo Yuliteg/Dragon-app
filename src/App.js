@@ -1,7 +1,3 @@
-import { useGlobalContext } from './context';
-import Loading from './page/Loading';
-import { useState } from 'react';
-import { DragonGallery } from './components/Gallery/DragonGallery';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SingleDragon } from './page/SingleDragon';
 import {Home} from './page/Home'
@@ -9,7 +5,6 @@ import  ErrorPage  from './page/Error';
 import { FavoritePage } from './page/FavoritePage';
 
 const App = () => {
-  const { loading, dataGallery } = useGlobalContext();
 
   return (
     <>
@@ -21,7 +16,6 @@ const App = () => {
         <Route path='*' element={<ErrorPage />} />
         </Routes>
        </Router>
-     
     </>
   );
 }

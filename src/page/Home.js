@@ -6,10 +6,8 @@ import Information from '../components/Information/Information';
 import Slider from '../components/Slider/Slider';
 import Loading from './Loading';
 import { DragonGallery } from '../components/Gallery/DragonGallery';
-import { SingleDragon } from './SingleDragon';
 import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';
-
 
 export const Home = () => {
   const { loading, dataGallery } = useGlobalContext();
