@@ -6,41 +6,17 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
-    const [space, setSpaceData] = useState([]);
-    const [images, setImages] = useState([]);
-    const [height, setHeight] = useState([]);
-    const [diameter, setDiameter] = useState([]);
-    const [launchMass, setLaunchMass] = useState([]);
-    const [returnMass, setReturnMass] = useState([]);
+    const [rocket, setRocketData] = useState([]);
     const [dataGallery, setDataGallery] = useState([]);
     const [count, setCount] = useState(0)
-  
+
     const fetchInfo = async () => {
-        setLoading(false)
-        if (localStorage.getItem('localData') !== null) {
-            const localStorage = window.localStorage.getItem('localData')
-            const localStorageData = JSON.parse(localStorage)
-            setSpaceData(localStorageData)
-            setImages(localStorageData.flickr_images)
-            setHeight(localStorageData.height_w_trunk)
-            setDiameter(localStorageData.diameter)
-            setLaunchMass(localStorageData.launch_payload_mass)
-            setReturnMass(localStorageData.return_payload_mass)
-        } else {
             setLoading(true)
             const response = await fetch(infoUrl);
             const data = await response.json();
             window.localStorage.setItem('localData', JSON.stringify(data))
-            setSpaceData(data)
-            setImages(data.flickr_images)
-            setHeight(data.height_w_trunk)
-            setDiameter(data.diameter)
-            setLaunchMass(data.launch_payload_mass)
-            setReturnMass(data.return_payload_mass)
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000)
-        }
+            setRocketData(data)
+            setLoading(false)
     }
 
     const fetchGallery = async () => {
@@ -67,7 +43,7 @@ const AppProvider = ({ children }) => {
     }, [])
 
     return (
-        <AppContext.Provider value={{ loading, setLoading, space, images, height, diameter, launchMass, returnMass, dataGallery, count, setCount }}>
+        <AppContext.Provider value={{ loading, setLoading, rocket, dataGallery, count, setCount }}>
             {children}
         </AppContext.Provider>
     )

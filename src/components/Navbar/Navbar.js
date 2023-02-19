@@ -7,7 +7,7 @@ import { useGlobalContext } from '../../context';
 import { NavContainer } from './NavContainer';
 
 const Navbar = () => {
-  const {dataGallery, count} = useGlobalContext();
+  const { dataGallery, count } = useGlobalContext();
 
   const navRef = useRef()
 
@@ -28,16 +28,13 @@ const Navbar = () => {
             <span className='favorite-value'>{count}</span>
           </span>
         </Link>
-        <Link to='/'>Log out</Link>
         <button className='nav-btn nav-close' onClick={showNavbar}>
           <CloseIcon />
         </button>
       </nav>
-
       <button className='nav-btn' onClick={showNavbar}>
         <MenuIcon />
       </button>
-      {/* </div> */}
     </NavContainer>
   )
 }

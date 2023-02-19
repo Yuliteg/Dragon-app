@@ -10,14 +10,15 @@ import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';
 
 export const Home = () => {
-  const { loading, dataGallery } = useGlobalContext();
+  const { rocket, loading, dataGallery } = useGlobalContext();
 
   return (
     <>
       <Navbar />
       <MainContainer>
         {loading ? <Loading /> : null}
-        <Information />
+        {rocket ? <Information /> : <Loading/>}
+        {/* <Information /> */}
         <Slider />
         <Gallery>
           <div className="gallery-container">
