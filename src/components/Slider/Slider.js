@@ -19,7 +19,7 @@ const Slider = () => {
           const newImg = [...rocket.flickr_images].splice(1)
           setSliderImg(newImg)
         }  
-      }, [loading])
+      }, [loading, rocket.flickr_images])
 
     return (
         <>

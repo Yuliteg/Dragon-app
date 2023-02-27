@@ -19,8 +19,7 @@ export const FavoritePage = () => {
               <p className="gallery-title">Your favorite Dragons</p>
               {favorite.map((item, index) => {
                 return (
-                  <>
-                    <div className="single-container">
+                    <div className="single-container" key={index}>
                       <img
                         className="dragon-favorite-img"
                         src={item.flickr_images[2]}
@@ -29,7 +28,6 @@ export const FavoritePage = () => {
                       <p className="dragon-name">Name: <span className="dragon-span">{item.name}</span></p>
                       <p className="dragon-desc">Description: <span>{item.description}</span></p>
                     </div>
-                  </>
                 );
               })}
             </PageFavorites>
@@ -77,10 +75,9 @@ const MainContainer = styled.main`
     font-size: 35px;
   }
   button {
-    align-items: center;
+  align-items: center;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
   color: #121212;
   cursor: pointer;
@@ -90,9 +87,6 @@ const MainContainer = styled.main`
   line-height: 1;
   padding: 0.5rem 1rem;
   text-align: center;
-  transition: box-shadow .2s,-webkit-box-shadow .2s;
-  white-space: nowrap;
-  user-select: none;
   margin-left: 0.5rem;
   }
 `;

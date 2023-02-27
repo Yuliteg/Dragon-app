@@ -18,7 +18,6 @@ export const Home = () => {
       <MainContainer>
         {loading ? <Loading /> : null}
         {rocket ? <Information /> : <Loading/>}
-        {/* <Information /> */}
         <Slider />
         <Gallery>
           <div className="gallery-container">
