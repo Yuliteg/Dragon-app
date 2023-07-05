@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 const Footer = () => {
-    return (
+  return (
     <FooterContainer>
-        <div className='footer-container'>
-      <p>© 2022 / All rights reserved</p>
+      <div className='footer-container'>
+        <p>© 2022 / All rights reserved</p>
       </div>
-  </FooterContainer>
-    )
-    }
+    </FooterContainer>
+  )
+}
 
-  const FooterContainer = styled.nav`
+const FooterContainer = styled.nav`
   height: 4rem;
   background-color: black;
   filter: drop-shadow(0px 4px 7px rgba(126, 57, 143, 0.7));
@@ -20,4 +20,4 @@ const Footer = () => {
   justify-content: center;
 `
 
-  export default Footer;
+export default Footer;

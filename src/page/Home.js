@@ -59,7 +59,8 @@ const Gallery = styled.section`
     font-weight: 700;
     font-size: 32px;
     line-height: 0px;
-    @media screen and (max-width: 600px) {
+
+  @media screen and (max-width: 600px) {
          font-size: 26px;
   }
   @media screen and (max-width: 500px) {

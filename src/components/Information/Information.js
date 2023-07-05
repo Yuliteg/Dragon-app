@@ -1,49 +1,66 @@
 import { useGlobalContext } from '../../context';
 import { InformationWrapper } from './InformationWrapper';
-import { useEffect } from 'react';
 
 const Information = () => {
   const { rocket, loading } = useGlobalContext();
 
   return (
     <>
-      <InformationWrapper>
-        {!loading &&
-          <>
-            <div className="dragon-image">
-              <img src={rocket.flickr_images[0]} alt="dragon-img" />
-            </div>
-            <div className="dragon-desc">
-              <p className="desc-title">Information</p>
+      {!loading && (
+        <InformationWrapper>
+          <div className="dragon-image">
+            <img src={rocket.flickr_images[0]} alt="dragon-img" />
+          </div>
+          <div className="dragon-desc">
+            <p className="desc-title">Information</p>
 
-              <div className="wrapper">
-                <p className="info">name:</p>
-                <p className="data">{rocket.name}</p>
-              </div>
-              <div className="wrapper">
-                <p className="info">height:</p>
-                <p className="data">{rocket.height_w_trunk.meters}m / <span>{rocket.height_w_trunk.feet} ft</span></p>
-              </div>
-              <div className="wrapper">
-                <p className="info">diametr:</p>
-                <p className="data">{rocket.diameter.meters}m / <span>{rocket.diameter.feet} ft</span></p>
-              </div>
-              <div className="wrapper">
-                <p className="info">launch payload mass:</p>
-                <p className="data">{rocket.launch_payload_mass.kg} kg / <span>{rocket.launch_payload_mass.lb} lb</span></p>
-              </div>
-              <div className="wrapper">
-                <p className="info">return payload mass:</p>
-                <p className="data">{rocket.return_payload_mass.kg} kg / <span>{rocket.return_payload_mass.lb} lb</span></p>
-              </div>
-              <div className="wrapper">
-                <p className="info">wikipedia link:</p>
-                <p className="data"><a href={rocket.wikipedia} target="_blank">wikipedia</a></p>
-              </div>
-            </div>
-          </>
-        }
-      </InformationWrapper>
+            <table className="rocket-table">
+              <tbody>
+                <tr>
+                  <td>name:</td>
+                  <td>{rocket.name}</td>
+                </tr>
+                <tr>
+                  <td>height:</td>
+                  <td>
+                    {rocket.height_w_trunk.meters}m /{' '}
+                    <span>{rocket.height_w_trunk.feet} ft</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>diameter:</td>
+                  <td>
+                    {rocket.diameter.meters}m /{' '}
+                    <span>{rocket.diameter.feet} ft</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>launch payload mass:</td>
+                  <td>
+                    {rocket.launch_payload_mass.kg} kg /{' '}
+                    <span>{rocket.launch_payload_mass.lb} lb</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>return payload mass:</td>
+                  <td>
+                    {rocket.return_payload_mass.kg} kg /{' '}
+                    <span>{rocket.return_payload_mass.lb} lb</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>wikipedia link:</td>
+                  <td>
+                    <a href={rocket.wikipedia} target="_blank" rel="noreferrer">
+                      Wikipedia
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </InformationWrapper>
+      )}
     </>
   )
 }

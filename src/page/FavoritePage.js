@@ -61,6 +61,8 @@ const MainContainer = styled.main`
   min-height: 100vh;
 
   .warning {
+    margin-left: 2rem;
+    margin-right: 1rem;
     color: white;
     display: flex;
     justify-content: center;
@@ -74,6 +76,7 @@ const MainContainer = styled.main`
     margin: 0;
     font-size: 35px;
   }
+  
   button {
   align-items: center;
   background-color: #fff;

@@ -1,19 +1,14 @@
 import React from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
-import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import styled from 'styled-components';
-import { useGlobalContext } from '../context';
 
 const Loading = () => {
 
- return (
+  return (
     <SpinnerWrapper>
-   <ClipLoader color={"#2b303b"} size={150} />
-   </SpinnerWrapper>
- )
+      <ClipLoader color={"#2b303b"} size={150} />
+    </SpinnerWrapper>
+  )
 }
 
 export default Loading

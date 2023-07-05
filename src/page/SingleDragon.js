@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { galleryUrl } from "../context";
 import Navbar from "../components/Navbar/Navbar";
@@ -13,7 +13,7 @@ export const SingleDragon = () => {
   const [moreData, setMoreData] = useState([]);
   const { id } = useParams();
 
-  const fetchSingleDragon = async () => {
+  const fetchSingleDragon = useCallback(async () => {
     try {
       const response = await fetch(`${galleryUrl}/${id}`);
       const singleDragon = await response.json();
@@ -23,11 +23,12 @@ export const SingleDragon = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [id]);
+
 
   useEffect(() => {
     fetchSingleDragon();
-  }, [id]);
+  }, [fetchSingleDragon]);
 
   return (
     <>
@@ -35,27 +36,36 @@ export const SingleDragon = () => {
       <MainContainer>
         <div className="container">
           <div className="img-container">
-            <img src={imgSingleDragon[2]} alt="img" />
+            <img src={imgSingleDragon[2]} className="dragon-img" alt="img" />
           </div>
           <div className="desc-container">
-            <p className="desc-title">Description</p>
+            <p className="desc-title">About Dragon</p>
 
-            <div className="flex">
-              <div className="left-flex">
-                <p>Name:</p>
-                <p>Material:</p>
-                <p>Temp-degrees:</p>
-                <p>Dev-partner:</p>
-                <p>Type:</p>
-              </div>
-              <div className="right-flex">
-                <p>{dataSingleDragon.name}</p>
-                <p>{moreData.material}</p>
-                <p>{moreData.temp_degrees}</p>
-                <p>{moreData.dev_partner}</p>
-                <p>{dataSingleDragon.type}</p>
-              </div>
-            </div>
+            <table className="dragon-table">
+              <tbody>
+                <tr>
+                  <td className="table-label">Name:</td>
+                  <td className="table-value">{dataSingleDragon.name}</td>
+                </tr>
+                <tr>
+                  <td className="table-label">Material:</td>
+                  <td className="table-value">{moreData.material}</td>
+                </tr>
+                <tr>
+                  <td className="table-label">Temp-degrees:</td>
+                  <td className="table-value">{moreData.temp_degrees}</td>
+                </tr>
+                <tr>
+                  <td className="table-label">Dev-partner:</td>
+                  <td className="table-value">{moreData.dev_partner}</td>
+                </tr>
+                <tr>
+                  <td className="table-label">Type:</td>
+                  <td className="table-value">{dataSingleDragon.type}</td>
+                </tr>
+              </tbody>
+            </table>
+
           </div>
         </div>
 
@@ -80,57 +90,73 @@ const MainContainer = styled.main`
   .container {
     padding: 4rem;
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+
+    .dragon-img {
+      object-fit: contain;
+      width: 50vw;
+      max-height: 72vh;
+    }
 
     @media screen and (max-width: 800px) {
       flex-direction: column;
-    }
-    .desc-container {
-      min-width: 35vw;
-    }
-    img {
-      width: 75vh;
-      height: auto;
-    }
-    .desc-title {
-      padding-bottom: 0.5rem;
-      color: white;
-      font-weight: 600;
-      font-size: 34px;
-      line-height: 0px;
-      margin-top: 1.2rem;
-      margin-bottom: 3rem;
-      padding-left: 25vh;
-    }
-    .flex {
-      display: flex;
-      flex-direction: row;
-      gap: 20vh;
-      padding-bottom: 2rem;
-      justify-content: center;
-      line-height: 4rem;
-    }
-
-    p {
-      color: white;
-      font-size: 25px;
-      margin: 0;
+      align-items: center;
     }
   }
+
+  .desc-container {
+    min-width: 35vw;
+  }
+
+  .desc-title {
+    text-align: center;
+    padding-bottom: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 0px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .dragon-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    font-size: 25px;
+  }
+
+  .dragon-table td {
+    padding: 1rem;
+    border-bottom: 1px groove white;
+  }
+
+  .table-label {
+    text-align: left;
+    color: white;
+    font-weight: 500;
+  }
+
+  .table-value {
+    text-align: right;
+    color: white;
+  }
+
   .desc {
     max-width: 80vw;
-    margin: 0;
     margin-left: 10%;
-     p {
+
+    p {
       margin: 0;
       padding-bottom: 3rem;
       color: white;
       font-size: 24px;
-       span {
+
+      span {
         padding-left: 1rem;
         font-size: 20px;
-       }
-     }
+      }
+    }
   }
 `;

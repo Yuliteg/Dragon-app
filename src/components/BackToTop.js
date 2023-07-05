@@ -3,32 +3,32 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import styled from 'styled-components';
 
 function BackTotop() {
-   const [backToTop, setBackToTop] = useState(false)
+  const [backToTop, setBackToTop] = useState(false)
 
-   useEffect(() => {
-     window.addEventListener("scroll", () => {
-        if(window.scrollY > 100) {
-            setBackToTop(true)
-        } else {
-            setBackToTop(false)
-        }
-     })
-   }, [])
-
-   const scroll = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setBackToTop(true)
+      } else {
+        setBackToTop(false)
+      }
     })
-   }
- 
+  }, [])
+
+  const scroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
-     <Wrapper>
-        {backToTop && (
-                <ArrowCircleUpIcon 
-                onClick={scroll}
-                className='top-button'/>
-        )}
+    <Wrapper>
+      {backToTop && (
+        <ArrowCircleUpIcon
+          onClick={scroll}
+          className='top-button' />
+      )}
     </Wrapper>
   )
 }

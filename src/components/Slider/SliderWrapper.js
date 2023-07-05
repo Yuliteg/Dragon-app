@@ -17,6 +17,7 @@ export const SliderWrapper = styled.section`
       display: flex;
       justify-content: center;
       cursor: pointer;
+      
     .dot-active {
         width: 8px;
         height: 8px;
