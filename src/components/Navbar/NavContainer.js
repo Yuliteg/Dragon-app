@@ -9,19 +9,25 @@ export const NavContainer = styled.nav`
   justify-content: space-between;
   color: white;
 
+  .link {
+    margin-bottom: 5px;
+  }
+
   .like {
     color: red;
   }
   .favorite-container {
-    align-items: center;
     position: relative;
     svg {
-      margin-left: 5px;
+     margin-left: -5px;
     }
+    @media screen and (max-width: 400px) {
+      display: none;
+   }
   }
   .favorite-value {
     position: absolute;
-    top: -2.1vh;
+    top: -1.3vh;
     right: -16px;
     background: gray;
     width: 5px;
@@ -35,26 +41,27 @@ export const NavContainer = styled.nav`
   }
 
   .logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
     font-family: 'Syncopate';
-     font-weight: 700;
-     font-size: 20px; 
-     color: white;
-     align-items: center;
-     padding-left: 3rem;
+    font-weight: 700;
+    font-size: 20px; 
+    color: white;
+    padding-left: 5vw;
 
      @media screen and (max-width: 600px) {
-      font-size: 15px;
+      font-size: 17px;
    }
   }
 
     a {
-      margin: 0 2rem;
+      margin: 0 2.5rem;
       color: white;
       font-weight: 600;
-      font-size: 20px;
-      line-height: 23px;
+      font-size: 22px;
       color: white;
       text-decoration: none;
     }
-    
 `;

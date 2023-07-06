@@ -8,31 +8,40 @@ import Loading from './Loading';
 import { DragonGallery } from '../components/Gallery/DragonGallery';
 import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';
+import { LoadingWrapper } from '../style/helper';
 
-export const Home = () => {
-  const { rocket, loading, dataGallery } = useGlobalContext();
+export const
+  Home = () => {
+    const { loading, dataGallery } = useGlobalContext();
 
-  return (
-    <>
-      <Navbar />
-      <MainContainer>
-        {loading ? <Loading /> : null}
-        {rocket ? <Information /> : <Loading/>}
-        <Slider />
-        <Gallery>
-          <div className="gallery-container">
-            <p className='gallery-title'>Here you can see the best photos</p>
-            {dataGallery.map((dragon) => {
-              return <DragonGallery key={dragon.id} itemData={dragon} />
-            })}
-          </div>
-        </Gallery>
-      </MainContainer>
-        <BackToTop />
-      <Footer />
-    </>
-  )
-}
+    return (
+      <>
+        <Navbar />
+        {loading ? (
+          <LoadingWrapper>
+            <Loading />
+          </LoadingWrapper>
+        ) : (
+          <>
+            <MainContainer>
+              <Information />
+              <Slider />
+              <Gallery>
+                <div className="gallery-container">
+                  <p className='gallery-title'>Here you can see the best photos</p>
+                  {dataGallery.map((dragon) => {
+                    return <DragonGallery key={dragon.id} itemData={dragon} />;
+                  })}
+                </div>
+              </Gallery>
+            </MainContainer>
+            <BackToTop />
+            <Footer />
+          </>
+        )}
+      </>
+    )
+  }
 
 const MainContainer = styled.main`
   background-image: url(${background});

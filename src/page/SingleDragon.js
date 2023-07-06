@@ -5,12 +5,15 @@ import { galleryUrl } from "../context";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import background from "../image/Stars.png";
+import Loading from "./Loading";
+import { LoadingWrapper } from '../style/helper';
 
 
 export const SingleDragon = () => {
   const [dataSingleDragon, setSingleDragon] = useState([]);
   const [imgSingleDragon, setImg] = useState([]);
   const [moreData, setMoreData] = useState([]);
+  const [loading, setLoading] = useState(true)
   const { id } = useParams();
 
   const fetchSingleDragon = useCallback(async () => {
@@ -20,8 +23,10 @@ export const SingleDragon = () => {
       setSingleDragon(singleDragon);
       setImg(singleDragon.flickr_images);
       setMoreData(singleDragon.heat_shield);
+      setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   }, [id]);
 
@@ -34,46 +39,54 @@ export const SingleDragon = () => {
     <>
       <Navbar />
       <MainContainer>
-        <div className="container">
-          <div className="img-container">
-            <img src={imgSingleDragon[2]} className="dragon-img" alt="img" />
-          </div>
-          <div className="desc-container">
-            <p className="desc-title">About Dragon</p>
+        {loading ? (
+          <LoadingWrapper>
+            <Loading />
+          </LoadingWrapper>
+        ) : (
+          <>
+            <div className="container">
+              <div className="img-container">
+                <img src={imgSingleDragon[2]} className="dragon-img" alt="img" />
+              </div>
+              <div className="desc-container">
+                <p className="desc-title">About Dragon</p>
 
-            <table className="dragon-table">
-              <tbody>
-                <tr>
-                  <td className="table-label">Name:</td>
-                  <td className="table-value">{dataSingleDragon.name}</td>
-                </tr>
-                <tr>
-                  <td className="table-label">Material:</td>
-                  <td className="table-value">{moreData.material}</td>
-                </tr>
-                <tr>
-                  <td className="table-label">Temp-degrees:</td>
-                  <td className="table-value">{moreData.temp_degrees}</td>
-                </tr>
-                <tr>
-                  <td className="table-label">Dev-partner:</td>
-                  <td className="table-value">{moreData.dev_partner}</td>
-                </tr>
-                <tr>
-                  <td className="table-label">Type:</td>
-                  <td className="table-value">{dataSingleDragon.type}</td>
-                </tr>
-              </tbody>
-            </table>
+                <table className="dragon-table">
+                  <tbody>
+                    <tr>
+                      <td className="table-label">Name:</td>
+                      <td className="table-value">{dataSingleDragon.name}</td>
+                    </tr>
+                    <tr>
+                      <td className="table-label">Material:</td>
+                      <td className="table-value">{moreData.material}</td>
+                    </tr>
+                    <tr>
+                      <td className="table-label">Temp-degrees:</td>
+                      <td className="table-value">{moreData.temp_degrees}</td>
+                    </tr>
+                    <tr>
+                      <td className="table-label">Dev-partner:</td>
+                      <td className="table-value">{moreData.dev_partner}</td>
+                    </tr>
+                    <tr>
+                      <td className="table-label">Type:</td>
+                      <td className="table-value">{dataSingleDragon.type}</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-          </div>
-        </div>
-
-        <div className="desc">
-          <p>Description:
-            <span>{dataSingleDragon.description}</span>
-          </p>
-        </div>
+              </div>
+            </div>
+            <div className="desc">
+              <p>
+                Description:
+                <span>{dataSingleDragon.description}</span>
+              </p>
+            </div>
+          </>
+        )}
       </MainContainer>
       <Footer />
     </>
